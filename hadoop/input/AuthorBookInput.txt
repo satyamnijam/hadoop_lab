@@ -1,0 +1,7 @@
+{"author":"Sharif Qasim","book":"al- Rabi al-manshud"}
+{"author":"Naṣir Nimri","book":"Adib Abbasi"}
+{"author":"Naṣir Nimri","book":"Books 2"}
+{"author":"Muẓaffar Ab","book":"Asma"}
+{"author":"Ḥasan Muṣṭafa Aḥmad","book":"al- Jabhah"}
+{"author":"Rafiqah Salim","book":"Talim"}
+{"author":"Rafiqah Salim","book":"Talim2"}
