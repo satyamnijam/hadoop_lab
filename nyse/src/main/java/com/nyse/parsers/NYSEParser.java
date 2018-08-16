@@ -1,5 +1,9 @@
 package com.nyse.parsers;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class NYSEParser {
 	private String stockTicker; // Stock symbol
 	private String tradeDate;
@@ -31,7 +35,21 @@ public class NYSEParser {
 	public String getTradeDate() {
 		return tradeDate;
 	}
-
+	
+	public String getTradeMonth() {
+		SimpleDateFormat origTradeDateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+		SimpleDateFormat tgtTradeMonthFormat = new SimpleDateFormat("yyyy-MM");
+		
+		Date origDate = new Date();
+		try {
+			origDate = origTradeDateFormat.parse(this.tradeDate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String tgtTradeMonth = tgtTradeMonthFormat.format(origDate);
+		return tgtTradeMonth;
+	}
 	public void setTradeDate(String tradeDate) {
 		this.tradeDate = tradeDate;
 	}
