@@ -4,24 +4,31 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
+import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.WritableComparable;
 
-public class TextPair implements WritableComparable<TextPair> {
+public class LongPair implements WritableComparable<LongPair> {
 
-	Text first;
-	Text second;
+	LongWritable first;
+	LongWritable second;
 
-	public TextPair(Text first, Text second) {
+	public LongPair() {
+		super();
+		this.first = new LongWritable();
+		this.second = new LongWritable();
+	}
+
+	public LongPair(LongWritable first, LongWritable second) {
 		super();
 		this.first = first;
 		this.second = second;
 	}
 
-	public TextPair(String first, String second) {
+	public LongPair(Long first, Long second) {
 		super();
-		this.first = new Text(first);
-		this.second = new Text(second);
+		this.first = new LongWritable(first);
+		this.second = new LongWritable(second);
 	}
 
 	@Override
@@ -39,7 +46,7 @@ public class TextPair implements WritableComparable<TextPair> {
 	}
 
 	@Override
-	public int compareTo(TextPair other) {
+	public int compareTo(LongPair other) {
 		int cmp = this.first.compareTo(other.first);
 		if (cmp != 0)
 			return cmp;
@@ -63,7 +70,7 @@ public class TextPair implements WritableComparable<TextPair> {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		TextPair other = (TextPair) obj;
+		LongPair other = (LongPair) obj;
 		if (first == null) {
 			if (other.first != null)
 				return false;
@@ -80,6 +87,22 @@ public class TextPair implements WritableComparable<TextPair> {
 	@Override
 	public String toString() {
 		return "TextPair [first=" + first + ", second=" + second + "]";
+	}
+
+	public LongWritable getFirst() {
+		return first;
+	}
+
+	public void setFirst(LongWritable first) {
+		this.first = first;
+	}
+
+	public LongWritable getSecond() {
+		return second;
+	}
+
+	public void setSecond(LongWritable second) {
+		this.second = second;
 	}
 
 }
