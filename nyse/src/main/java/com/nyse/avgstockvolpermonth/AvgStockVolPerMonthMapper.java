@@ -17,7 +17,9 @@ public class AvgStockVolPerMonthMapper extends Mapper<LongWritable, Text, TextPa
 	
 	public void map(LongWritable lineOffSet, Text record, Context context) throws IOException, InterruptedException {
 		parser.parse(record.toString());
-		
+		System.out.println("*******AvgStockVolPerMonthMapper is being executed************");
+		System.out.println("StockTicker: "+parser.getStockTicker()+", TradeMonth: "+parser.getTradeMonth());
+		System.out.println("--------------------------------------------------------------------");
 		mapOutputKey.setFirst(new Text(parser.getTradeMonth()));
 		mapOutputKey.setSecond(new Text(parser.getStockTicker()));
 		
