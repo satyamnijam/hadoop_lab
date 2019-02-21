@@ -1,0 +1,7 @@
+#----------RUNNING FLUME AGENT-------------
+#flume-ng agent --name agent1 --conf-file flumeLab/example1/example.conf  --conf /etc/flume/conf
+#flume-ng agent --name agent1 --conf-file flumeLab/example1/example.conf
+
+
+NOTE: if log4j error comes, pass conf path 
+
