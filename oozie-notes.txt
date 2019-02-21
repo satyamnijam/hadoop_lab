@@ -1,0 +1,17 @@
+oozie admin -oozie http://nn01.itversity.com:11000/oozie -status
+
+oozie job -oozie http://nn01.itversity.com:11000/oozie -config /user/satyamnijamsheelam/examples/apps/rowCountOozie/job.properties -run
+
+oozie job -oozie http://nn01.itversity.com:11000/oozie -config /home/satyamnijamsheelam/rowCountOozie/job.properties -run
+
+oozie job -oozie http://nn01.itversity.com:11000/oozie -config /home/satyamnijamsheelam/hiveOozieLab/job.properties -run
+
+oozie job -oozie http://nn01.itversity.com:11000/oozie -config /home/satyamnijamsheelam/hiveOozieLab/nyse/job.properties -run
+
+oozie job -oozie http://nn01.itversity.com:11000/oozie -config /home/satyamnijamsheelam/shellOozieLab/job.properties -run
+----------------------------------------------
+hdfs dfs -put -R rowCountOozie/workflow.xml /user/satyamnijamsheelam/examples/apps/rowCountOozie/
+
+hdfs dfs -rm -f rowCountOozie/workflow.xml /user/satyamnijamsheelam/examples/apps/rowCountOozie/workflow.xml
+
+
