@@ -1,0 +1,64 @@
+-------------------------- CLOUD X LAB -----------------------------
+
+
+**************************************  SAMPLE KAFKA CONSOLE EXAMPLE  *****************************************
+
+export PATH=$PATH:/usr/hdp/current/kafka-broker/bin
+
+==> Creating a TOPIC
+
+==>kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic javaworldocal
+
+NOTE: Here "Localhost" has to replce with zookeeper IP
+Sample with "ip-172-31-20-247.ec2.internal" this is from cloudx cluser
+
+==>kafka-topics.sh --create --zookeeper ip-172-31-20-247.ec2.internal:2181 --replication-factor 1 --partitions 1 --topic satyatopic17march
+
+==> List all topics which were created. We can also find our own topic by doing GREP
+==>kafka-topics.sh --list --zookeeper ip-172-31-20-247.ec2.internal:2181
+==>kafka-topics.sh --list --zookeeper ip-172-31-20-247.ec2.internal:2181 | grep <topic name>
+
+----------- ZooKeeper CLIENT ----------------------
+NOTE: To see list of brokers
+==> Go to zookeeper client  by pressing  the following CMD in console $> zookeeper-client
+To get the broker's IDs enter the following command in zookeper client  ==> $> ls /brokers/ids
+
+SAMPLE OUTPUT: 
+[zk: localhost:2181(CONNECTED) 0] ls /brokers/ids
+[1003, 1002, 1001]  ==> These are the IDS of brokers
+We can use any of the broker from this list 1001,1002, 1003
+
+------------------- To get the broker details -------------
+==> type in CMD
+get /brokers/ids/1003
+
+copy broker IP : example ip-172-31-20-247.ec2.internal
+
+go out of zookeeper-client and trype the followinf command to create console PRODUCER
+kafka-console-producer.sh --broker-list ip-172-31-20-247.ec2.internal:6667 --topic satyatopic17march
+
+------------------ Consumer --------------
+
+kafka-console-consumer.sh --zookeeper ip-172-31-20-247.ec2.internal:2181 --topic satyatopic17march --from-beginning
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
