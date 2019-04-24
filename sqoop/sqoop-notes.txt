@@ -1,0 +1,68 @@
+PROBLEM 1
+---------------------------------------------------
+
+Instructions:
+
+Connect to mySQL database using sqoop, import all customers that lives in 'CA' state.
+> Installation : on the cluser node gateway 
+
+> Database name:  retail_db
+
+> Table name: Customers
+
+> Username: root
+
+> Password: cloudera
+
+Data Description:
+
+A mysql instance is running on the gateway node.In that instance you will find customers table that contains customers data.
+
+
+Output Requirement:
+------------------
+Place the customers files in HDFS directory "/user/cloudera/problem1/customers/avrodata"
+
+Use avro format with pipe delimiter and snappy compression.
+
+Load every customer record completely
+
+Verify this
+--------
+sqoop import \
+--connect "jdbc:mysql://ip-172-31-20-247/retail_db" \
+--username sqoopuser --password NHkkP876rp \
+--table emp \ 
+--compress \ 
+--compression-codec snappy \ 
+--target-dir /user/satyamnijamsheelam1044/problem1/emp/avrodata \
+--fields-terminated-by '|' \
+--as-avrodatafile
+
+sqoop import \
+--connect "jdbc:mysql://ip-172-31-20-247/retail_db" \
+--username sqoopuser \
+--password NHkkP876rp \
+--table emp \
+--m 1 \
+--compress \
+--target-dir /user/satyamnijamsheelam1044/problem1/emp/avrodata \
+--as-avrodatafile
+
+**********************************************************************************************************************************
+
+PROBLEM 2
+------------
+ sqoop import \
+--connect "jdbc:mysql://ip-172-31-20-247/retail_db" \
+--username sqoopuser \
+--password NHkkP876rp \
+--table emp \
+--m 1 \
+--target-dir /user/satyamnijamsheelam1044/problem1/emp/import-emp \
+--as-textfile
+
+
+
+
+
